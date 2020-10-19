@@ -8,8 +8,8 @@ import {FLIGHT_BOOKING_ROUTES} from './flight-booking.routes';
 import {FlightCardComponent} from './flight-card/flight-card.component';
 import {FlightEditComponent} from './flight-edit/flight-edit.component';
 import {FlightSearchComponent} from './flight-search/flight-search.component';
+import {AirportComponent} from './airport/airport.component';
 import {PassengerSearchComponent} from './passenger-search/passenger-search.component';
-import { AirportComponent } from './flight-booking/airport/airport.component';
 
 @NgModule({
   imports: [

@@ -14,16 +14,17 @@ import { HomeComponent } from "./home/home.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SharedModule } from "./shared/shared.module";
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { LoggerModule } from '@flight-workspace/logger-lib'; 
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    LoggerModule.forRoot({ enableDebug: true }),
     FlightBookingModule,
 
     BrowserAnimationsModule,
     FlightCancellingModule,
-
     FlightLibModule.forRoot(),
     SharedModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES),

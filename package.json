@@ -6,6 +6,8 @@
     "ng": "nx",
     "nx": "nx",
     "start": "ng serve -o",
+    "start:host": "ng serve --port=4200 -o --host=${HOSTNAME}",
+    "start:host:proxy": "ng serve --port=4200 -o --host=${HOSTNAME} --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "nx workspace-lint && ng lint",
