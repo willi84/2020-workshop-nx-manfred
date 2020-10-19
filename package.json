@@ -7,6 +7,7 @@
     "nx": "nx",
     "start": "ng serve -o",
     "start:host": "ng serve --port=4200 -o --host=${HOSTNAME}",
+    "start:luggage": "ng serve luggage --port=4200 -o --host=${HOSTNAME}",
     "start:host:proxy": "ng serve --port=4200 -o --host=${HOSTNAME} --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
@@ -28,6 +29,7 @@
     "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
+    "dep-graph:html": "nx dep-graph --file=output.html",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points && node ./decorate-angular-cli.js"
   },
