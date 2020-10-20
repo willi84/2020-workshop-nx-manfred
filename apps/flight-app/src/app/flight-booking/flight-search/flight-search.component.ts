@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FlightService} from '@flight-workspace/flight-lib';
+import {FlightService, Flight} from '@flight-workspace/flight-lib';
+import { flightsLoaded } from '../+state/flight-booking.actions';
+import { Observable } from 'rxjs/internal/Observable';
+import { FlightBookingAppState } from '../+state/flight-booking.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'flight-search',
@@ -21,19 +25,30 @@ export class FlightSearchComponent implements OnInit {
     "3": true,
     "5": true
   };
+  flights$: Observable<Flight[]>;
 
   constructor(
-    private flightService: FlightService) {
+    private flightService: FlightService,
+    private store: Store<FlightBookingAppState>) {
   }
 
   ngOnInit() {
+    this.flights$ = this.store.select(s => s.flightBooking.flights);
   }
 
   search(): void {
     if (!this.from || !this.to) return;
 
     this.flightService
-      .load(this.from, this.to, this.urgent);
+      .find(this.from, this.to, this.urgent)
+      .subscribe(
+        flights => { 
+          this.store.dispatch(flightsLoaded({flights}));
+        },
+        error => {
+          console.error('error', error);
+        } 
+      );
   }
 
   delay(): void {

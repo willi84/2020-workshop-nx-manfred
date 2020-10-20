@@ -14,7 +14,12 @@ import { HomeComponent } from "./home/home.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SharedModule } from "./shared/shared.module";
 import { SidebarComponent } from "./sidebar/sidebar.component";
-import { LoggerModule } from '@flight-workspace/logger-lib'; 
+import { LoggerModule } from '@flight-workspace/logger-lib';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './+state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment'; 
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -27,7 +32,10 @@ import { LoggerModule } from '@flight-workspace/logger-lib';
     FlightCancellingModule,
     FlightLibModule.forRoot(),
     SharedModule.forRoot(),
+    EffectsModule.forRoot([]),
     RouterModule.forRoot(APP_ROUTES),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   declarations: [
     AppComponent,
