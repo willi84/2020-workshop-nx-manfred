@@ -20,6 +20,8 @@ import { reducers, metaReducers } from './+state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; 
 import { EffectsModule } from '@ngrx/effects';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FlightLookaheadComponent } from './flight-lookahead/flight-lookahead.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,7 @@ import { EffectsModule } from '@ngrx/effects';
     HttpClientModule,
     LoggerModule.forRoot({ enableDebug: true }),
     FlightBookingModule,
-
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     FlightCancellingModule,
     FlightLibModule.forRoot(),
@@ -42,7 +44,8 @@ import { EffectsModule } from '@ngrx/effects';
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    BasketComponent
+    BasketComponent,
+    FlightLookaheadComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
