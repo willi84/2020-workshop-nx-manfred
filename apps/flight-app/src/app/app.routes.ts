@@ -22,6 +22,10 @@ export const APP_ROUTES: Routes = [
     path: 'flight-lookahead',
     component: FlightLookaheadComponent
 },
+{
+  path: 'flight-booking',
+  loadChildren: () => import('./flight-booking/flight-booking.module').then(m => m.FlightBookingModule) 
+},
   {
     path: '**',
     redirectTo: 'home'

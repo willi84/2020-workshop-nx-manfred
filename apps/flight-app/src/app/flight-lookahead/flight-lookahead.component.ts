@@ -52,13 +52,13 @@ name: String;
             const input$ = this.control.valueChanges.pipe(
               debounceTime(300));
           
-          this.flights$ = combineLatest([input$, this.online$]).pipe(
-              filter(( [_ , online] ) => online),
-              map( ([value, _]) => value ),
-              tap(v => this.loading = true),
-              switchMap( name => this.load(name) ),
-              tap(v => this.loading = false),
-          );
+          // this.flights$ = combineLatest([input$, this.online$]).pipe(
+          //     filter(( [_ , online] ) => online),
+          //     map( ([value, _]) => value ),
+          //     tap(v => this.loading = true),
+          //     switchMap( name => this.load(name) ),
+          //     tap(v => this.loading = false),
+          // );
           // this.flights$ = combineLatest(this.online$, this.input$).pipe(
           //   filter( ([online, _]) => online ),
           //   map(([_, value]) => value),

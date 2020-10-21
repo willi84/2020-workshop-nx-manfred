@@ -28,7 +28,7 @@ import { FlightLookaheadComponent } from './flight-lookahead/flight-lookahead.co
     BrowserModule,
     HttpClientModule,
     LoggerModule.forRoot({ enableDebug: true }),
-    FlightBookingModule,
+    // FlightBookingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FlightCancellingModule,
